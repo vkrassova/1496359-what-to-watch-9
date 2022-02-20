@@ -6,7 +6,7 @@ type MainPageProps = {
   released: number
 };
 
-function MainPage ({name, genre, released}: MainPageProps): JSX.Element {
+function MainPage({name, genre, released}: MainPageProps): JSX.Element {
   return (
     <>
       <section className="film-card">
@@ -44,10 +44,10 @@ function MainPage ({name, genre, released}: MainPageProps): JSX.Element {
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="film-card__title">{name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">Drama</span>
-                <span className="film-card__year">2014</span>
+                <span className="film-card__genre">{genre}</span>
+                <span className="film-card__year">{released}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -107,26 +107,12 @@ function MainPage ({name, genre, released}: MainPageProps): JSX.Element {
           </ul>
 
           <div className="catalog__films-list">
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
-            <MovieCard />
+            {
+              new Array(20)
+                .fill(0)
+                .map((item, index) => index)
+                .map((id) => <MovieCard key={id} />)
+            }
           </div>
 
           <div className="catalog__more">
