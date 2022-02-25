@@ -1,6 +1,6 @@
 import {FilmRating} from '../types/films';
 
-export const filmRating: FilmRating[] = [
+export const rating: FilmRating[] = [
   {
     'id': 1,
   },

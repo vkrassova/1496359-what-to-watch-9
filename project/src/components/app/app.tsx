@@ -8,16 +8,21 @@ import AddReview from '../add-review/add-review';
 import FilmPage from '../film-page/film-page';
 import Player from '../player/player';
 import NotFound from '../not-found/not-found';
+import {Film} from '../../types/films';
+import {FilmRating} from '../../types/films';
 
 type AppProps = {
   filmInfo: {
     name: string,
     genre: string,
     released: number,
-  }
+  },
+
+  films: Film[],
+  rating: FilmRating[],
 };
 
-function App({filmInfo}: AppProps): JSX.Element {
+function App({filmInfo, films, rating}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
