@@ -1,5 +1,7 @@
 import FilmsList from '../films-list/films-list';
 import {Film} from '../../types/films';
+import Logo from '../logo/logo';
+import UserBlock from '../user-block/user-block';
 
 type MainPageProps = {
   films: Film[],
@@ -18,24 +20,9 @@ function MainPage({films, film}: MainPageProps): JSX.Element {
         <h1 className="visually-hidden">WTW</h1>
 
         <header className="page-header film-card__head">
-          <div className="logo">
-            <a className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
+          <Logo/>
 
-          <ul className="user-block">
-            <li className="user-block__item">
-              <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-              </div>
-            </li>
-            <li className="user-block__item">
-              <a className="user-block__link">Sign out</a>
-            </li>
-          </ul>
+          <UserBlock/>
         </header>
 
         <div className="film-card__wrap">
@@ -115,14 +102,7 @@ function MainPage({films, film}: MainPageProps): JSX.Element {
         </section>
 
         <footer className="page-footer">
-          <div className="logo">
-            <a className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
+          <Logo theme="light"/>
           <div className="copyright">
             <p>© 2019 What to watch Ltd.</p>
           </div>
