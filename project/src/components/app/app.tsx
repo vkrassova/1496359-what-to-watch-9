@@ -14,10 +14,10 @@ import {FilmRating} from '../../types/films';
 type AppProps = {
   film: Film,
   films: Film[],
-  rating: FilmRating[],
+  ratings: FilmRating[],
 };
 
-function App({films, film, rating}: AppProps): JSX.Element {
+function App({films, film, ratings}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
@@ -29,13 +29,13 @@ function App({films, film, rating}: AppProps): JSX.Element {
           path={AppRoutes.MyList}
           element={
             <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
-              <MyList/>
+              <MyList films={films}/>
             </PrivateRoute>
           }
         />
         <Route
           path={AppRoutes.AddReview}
-          element={<AddReview/>}
+          element={<AddReview film={film} ratings={ratings}/>}
         />
         <Route
           path={AppRoutes.Film}
@@ -43,7 +43,7 @@ function App({films, film, rating}: AppProps): JSX.Element {
         />
         <Route
           path={AppRoutes.Player}
-          element={<Player/>}
+          element={<Player film={film}/>}
         />
         <Route
           path={AppRoutes.Main}

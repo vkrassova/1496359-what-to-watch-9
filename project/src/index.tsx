@@ -9,7 +9,7 @@ ReactDOM.render(
     <App
       film={films[1]}
       films={films}
-      rating={rating}
+      ratings={rating}
     />
   </React.StrictMode>,
   document.getElementById('root'));
