@@ -1,7 +1,20 @@
-function Player(): JSX.Element {
+import {Film} from '../../types/films';
+
+type PlayerProps = {
+  film: Film,
+}
+
+function Player({film}: PlayerProps): JSX.Element {
+  const {videoLink, posterImage} = film;
+
   return (
     <div className="player">
-      <video src="#" className="player__video" poster="img/player-poster.jpg"></video>
+      <video
+        src={videoLink}
+        className="player__video"
+        poster={posterImage}
+      >
+      </video>
 
       <button type="button" className="player__exit">Exit</button>
 
@@ -9,7 +22,7 @@ function Player(): JSX.Element {
         <div className="player__controls-row">
           <div className="player__time">
             <progress className="player__progress" value="30" max="100"></progress>
-            <div className="player__toggler" style={{ left: '30%' }}>Toggler</div>
+            <div className="player__toggler" style={{left: '30%'}}>Toggler</div>
           </div>
           <div className="player__time-value">1:30:29</div>
         </div>
