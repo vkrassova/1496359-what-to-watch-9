@@ -1,4 +1,4 @@
-import {Film, FilmRating} from '../../types/films';
+import {Film} from '../../types/films';
 import {Link} from 'react-router-dom';
 import Logo from '../logo/logo';
 import UserBlock from '../user-block/user-block';
@@ -6,10 +6,9 @@ import ReviewForm from '../review-form/review-form';
 
 type FilmReviewsProps = {
   film: Film,
-  ratings: FilmRating[],
 }
 
-function AddReview({film, ratings}: FilmReviewsProps): JSX.Element {
+function AddReview({film}: FilmReviewsProps): JSX.Element {
   const {id, name, backgroundImage, posterImage} = film;
   return (
     <section className="film-card film-card--full">
@@ -43,7 +42,7 @@ function AddReview({film, ratings}: FilmReviewsProps): JSX.Element {
       </div>
 
       <div className="add-review">
-        <ReviewForm ratings={ratings}/>
+        <ReviewForm />
       </div>
 
     </section>

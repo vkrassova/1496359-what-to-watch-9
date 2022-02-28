@@ -1,37 +1,35 @@
-import {FilmRating} from '../../types/films';
-import {useState} from 'react';
+import {useState, Fragment} from 'react';
 
-type ReviewFormProps = {
-  ratings: FilmRating[],
-};
-
-function ReviewForm({ratings}: ReviewFormProps): JSX.Element {
-  const [statRating, setRating] = useState(0);
+function ReviewForm(): JSX.Element {
+  const [statRating, setRating] = useState(8);
   const [reviewText, setReviewText] = useState('');
 
   return (
     <form action="#" className="add-review__form">
       <div className="rating">
-        <div className="rating__stars">
-          {ratings.map((item) => (
-            <>
-              <input
-                className="rating__input"
-                type="radio"
-                name="rating"
-                key={item.id}
-                id={`star-${item.id}`}
-                value={statRating}
-                onChange={(evt) => setRating(Number(evt.target.value))}
-              />
-              <label
-                className="rating__label"
-                htmlFor={`star-${item.id}`}
-              >
-                {`Rating ${item.id}`}
-              </label>
-            </>
-          ))}
+        <div
+          className="rating__stars"
+        >
+          {
+            Array.from({length: 10}, (item, index) => (
+              <Fragment key={index}>
+                <input
+                  className="rating__input"
+                  id={`star-${index}`}
+                  type="radio"
+                  name="rating"
+                  value={index}
+                  checked={statRating === index}
+                  onChange={(evt) => setRating(Number(evt.target.value))}
+                />
+                <label
+                  className="rating__label"
+                  htmlFor={`star-${index}`}
+                >
+                  {`Rating ${index}`}
+                </label>
+              </Fragment>))
+          }
         </div>
       </div>
 

@@ -3,13 +3,18 @@ import {Film} from '../../types/films';
 
 type FilmCardProps = {
   film: Film,
+  active: boolean,
+  onHover: (id: number) => void,
 };
 
-function FilmCard({film}: FilmCardProps): JSX.Element {
+function FilmCard({film, active, onHover}: FilmCardProps): JSX.Element {
   const {id, name, posterImage} = film;
 
   return (
-    <>
+    <article
+      className="small-film-card catalog__films-card"
+      onMouseEnter={() => onHover(id)}
+    >
       <div className="small-film-card__image">
         <img
           src={posterImage}
@@ -21,7 +26,7 @@ function FilmCard({film}: FilmCardProps): JSX.Element {
       <h3 className="small-film-card__title">
         <Link className="small-film-card__link" to={`/films/${id}`}>{name}</Link>
       </h3>
-    </>
+    </article>
   );
 }
 
