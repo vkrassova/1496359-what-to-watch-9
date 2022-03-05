@@ -5,6 +5,7 @@ export type Film = {
   backgroundImage: string,
   backgroundColor?: string,
   videoLink: string,
+  previewVideoLink: string,
   description: string,
   director: string,
   starring: [string],
