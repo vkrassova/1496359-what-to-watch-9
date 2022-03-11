@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import {Film} from '../../types/films';
 import VideoPlayer from '../video-player/video-player';
-import {useRef} from 'react';
+import {useState} from 'react';
 
 type FilmCardProps = {
   film: Film,
@@ -10,17 +10,17 @@ type FilmCardProps = {
 function FilmCard({film}: FilmCardProps): JSX.Element {
   const {id, name} = film;
 
-  const videoRef = useRef<HTMLVideoElement | null>(null);
   let timer: ReturnType<typeof setTimeout>;
+  const [isPlay, setIsPlay] = useState(false);
 
   const onMouseEnterHandler = () => {
     timer = setTimeout(() => {
-      videoRef.current && videoRef.current.play();
+      setIsPlay(true);
     }, 1000);
   };
 
   const onMouseLeaveHandler = () => {
-    videoRef.current && videoRef.current.load();
+    setIsPlay(false);
     clearTimeout(timer);
   };
 
@@ -32,7 +32,7 @@ function FilmCard({film}: FilmCardProps): JSX.Element {
     >
       <div className="small-film-card__image">
 
-        <VideoPlayer autoPlay={false} film={film} videoRef={videoRef}/>
+        <VideoPlayer autoPlay={false} film={film} isPlay={isPlay}/>
 
       </div>
       <h3 className="small-film-card__title">
