@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {AppRoutes} from '../../constants';
 
 type FilmCardBtnsProps = {
@@ -16,7 +16,7 @@ function FilmCardButtons({id}: FilmCardBtnsProps): JSX.Element {
   };
 
   return (
-    <div className="film-card__buttons">
+    <>
       <button
         className="btn btn--play film-card__button"
         type="button"
@@ -37,7 +37,7 @@ function FilmCardButtons({id}: FilmCardBtnsProps): JSX.Element {
         </svg>
         <span>My list</span>
       </button>
-    </div>
+    </>
   );
 }
 

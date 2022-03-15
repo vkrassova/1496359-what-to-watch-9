@@ -8,14 +8,15 @@ import AddReview from '../add-review/add-review';
 import FilmPage from '../film-page/film-page';
 import Player from '../player/player';
 import NotFound from '../not-found/not-found';
-import {Film} from '../../types/films';
+import {Film, FilmReview} from '../../types/films';
 
 type AppProps = {
   film: Film,
   films: Film[],
-};
+  reviews: FilmReview[],
+}
 
-function App({films, film}: AppProps): JSX.Element {
+function App({films, film, reviews}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
@@ -37,7 +38,7 @@ function App({films, film}: AppProps): JSX.Element {
         />
         <Route
           path={AppRoutes.Film}
-          element={<FilmPage film={film} films={films}/>}
+          element={<FilmPage films={films} reviews={reviews}/>}
         />
         <Route
           path={AppRoutes.Player}

@@ -27,7 +27,3 @@ export type FilmReview = {
     name: string
   }
 };
-
-export type FilmRating = {
-  id: number
-};

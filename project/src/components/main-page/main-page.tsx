@@ -3,6 +3,7 @@ import {Film} from '../../types/films';
 import Logo from '../logo/logo';
 import UserBlock from '../user-block/user-block';
 import FilmCardButtons from '../film-card-buttons/film-card-buttons';
+import {Link} from 'react-router-dom';
 
 type MainPageProps = {
   films: Film[],
@@ -39,7 +40,10 @@ function MainPage({films, film}: MainPageProps): JSX.Element {
                 <span className="film-card__year">{released}</span>
               </p>
 
-              <FilmCardButtons id={id}/>
+              <div className="film-card__buttons">
+                <FilmCardButtons id={id}/>
+                <Link to={`/films/${film?.id}/review`} className="btn film-card__button">Add review</Link>
+              </div>
 
             </div>
           </div>
@@ -83,7 +87,9 @@ function MainPage({films, film}: MainPageProps): JSX.Element {
             </li>
           </ul>
 
-          <FilmsList films={films} />
+          <div className="catalog__films-list">
+            <FilmsList films={films} />
+          </div>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
